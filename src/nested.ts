@@ -208,6 +208,27 @@ export function changeQuestionTypeById(
     );
 }
 
+// My initial implementation, John asked me to include to find prettier/eslint errors
+// export function changeQuestionTypeById(
+//     questions: Question[],
+//     targetId: number,
+//     newQuestionType: QuestionType
+// ): Question[] {
+//     return questions.map(
+//         (question: Question): Question =>
+//             question.id === targetId
+//                 ? {
+//                       ...question,
+//                       type: newQuestionType,
+//                       options:
+//                           newQuestionType === "multiple_choice_question"
+//                               ? question.options
+//                               : []
+//                   }
+//                 : { ...question, options: [...question.options] }
+//     );
+// }
+
 /**
  * Consumes an array of Questions and produces a new array of Questions, where all
  * the Questions are the same EXCEPT for the one with the given `targetId`. That
@@ -218,14 +239,55 @@ export function changeQuestionTypeById(
  * Remember, if a function starts getting too complicated, think about how a helper function
  * can make it simpler! Break down complicated tasks into little pieces.
  */
-export function editOption(
+export function editOption( // John said this implementation was ok due to the linting errors I was getting
     questions: Question[],
     targetId: number,
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const questionsCopy = questions.map(
+        (question: Question): Question => ({
+            ...question,
+            options: [...question.options]
+        })
+    );
+    const targetQuestion = findQuestion(questionsCopy, targetId);
+    if (!targetQuestion) {
+        return questions;
+    }
+    if (targetOptionIndex === -1) {
+        targetQuestion.options = [...targetQuestion.options, newOption];
+    } else {
+        targetQuestion.options.splice(targetOptionIndex, 1, newOption);
+    }
+    return questionsCopy;
 }
+
+// My initial implementation, John asked me to include to find prettier/eslint errors
+// export function editOption(
+//     questions: Question[],
+//     targetId: number,
+//     targetOptionIndex: number,
+//     newOption: string
+// ): Question[] {
+//     return questions.map(
+//         (question: Question): Question =>
+//             question.id === targetId
+//                 ? {
+//                       ...question,
+//                       options:
+//                           targetOptionIndex === -1
+//                               ? [...question.options, newOption]
+//                               : question.options.map(
+//                                     (option: string, index: number): string =>
+//                                         index === targetOptionIndex
+//                                             ? newOption
+//                                             : option
+//                                 )
+//                   }
+//                 : { ...question, options: [...question.options] }
+//     );
+// }
 
 /***
  * Consumes an array of questions, and produces a new array based on the original array.
