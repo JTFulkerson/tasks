@@ -238,5 +238,23 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const targetQuestion = findQuestion(questions, targetId);
+    if (!targetQuestion) {
+        return questions;
+    }
+    const targetIndex = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+    const questionsCopy = questions.map(
+        (question: Question): Question => ({
+            ...question,
+            options: [...question.options]
+        })
+    );
+    questionsCopy.splice(
+        targetIndex + 1,
+        0,
+        duplicateQuestion(newId, targetQuestion)
+    );
+    return questionsCopy;
 }
