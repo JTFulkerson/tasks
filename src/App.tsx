@@ -1,7 +1,11 @@
 import React from "react";
 import "./App.css";
-import pic from "./assets/IMG_2594.jpeg";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { ChangeType } from "./components/ChangeType";
+import { RevealAnswer } from "./components/RevealAnswer";
+import { StartAttempt } from "./components/StartAttempt";
+import { TwoDice } from "./components/TwoDice";
+import { CycleHoliday } from "./components/CycleHoliday";
+import { Counter } from "./components/Counter";
 
 function App(): JSX.Element {
     return (
@@ -9,43 +13,18 @@ function App(): JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript by John Fulkerson.
             </header>
-            <Container>
-                <Row>
-                    <Col>
-                        <img src={pic} alt="John Fulkerson's Headshot" />
-                        <div
-                            style={{
-                                width: "100px",
-                                height: "50px",
-                                backgroundColor: "red"
-                            }}
-                        ></div>
-                    </Col>
-                    <Col>
-                        <h2>My hobbies include</h2>
-                        <ul>
-                            <li>Sailing</li>
-                            <li>Scuba Diving</li>
-                            <li>Mountain Biking</li>
-                            <li>Coffee</li>
-                        </ul>
-                        <div
-                            style={{
-                                width: "100px",
-                                height: "50px",
-                                backgroundColor: "red"
-                            }}
-                        ></div>
-                    </Col>
-                </Row>
-            </Container>
-            <Button onClick={() => console.log("Hello World!")}>
-                Log Hello World
-            </Button>
-            <p>
-                Hello World, Edit <code>src/App.tsx</code> and save. This page
-                will automatically reload.
-            </p>
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <StartAttempt></StartAttempt>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+            <hr />
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
