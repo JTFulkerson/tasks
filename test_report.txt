@@ -29,7 +29,7 @@ PASS src/App.test.tsx
 --------------------|---------|----------|---------|---------|-------------------
 File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 --------------------|---------|----------|---------|---------|-------------------
-All files           |   98.69 |    95.45 |     100 |   98.63 |                   
+All files           |   98.66 |    95.45 |     100 |    98.6 |                   
  src                |   97.77 |    95.83 |     100 |   97.64 |                   
   App.tsx           |     100 |      100 |     100 |     100 |                   
   arrays.ts         |     100 |      100 |     100 |     100 |                   
@@ -56,5 +56,5 @@ All files           |   98.69 |    95.45 |     100 |   98.63 |
 Test Suites: 15 passed, 15 total
 Tests:       110 passed, 110 total
 Snapshots:   0 total
-Time:        6.195 s
+Time:        6.198 s
 Ran all test suites.
