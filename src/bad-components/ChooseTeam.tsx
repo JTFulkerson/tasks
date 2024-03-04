@@ -17,11 +17,15 @@ export function ChooseTeam(): JSX.Element {
     function chooseMember(newMember: string) {
         if (!team.includes(newMember)) {
             setTeam([...team, newMember]);
+            setAllOptions(
+                allOptions.filter((member: string) => member !== newMember)
+            );
         }
     }
 
     function clearTeam() {
         setTeam([]);
+        setAllOptions(PEOPLE);
     }
 
     return (
