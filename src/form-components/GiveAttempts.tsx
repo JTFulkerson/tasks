@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 
 export function GiveAttempts(): JSX.Element {
     const [attemptsLeft, setAttemptsLeft] = useState<number>(3);
-    const [requestedAttempts, setRequestedAttempts] = useState<string>();
+    const [requestedAttempts, setRequestedAttempts] = useState<string>("0");
 
     return (
         <div>
